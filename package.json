@@ -1,0 +1,51 @@
+{
+  "name": "playwright-testbuddy",
+  "version": "0.1.0",
+  "description": "A Playwright Test Buddy that helps you in writing Playwright code.",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist/"
+  ],
+  "engines": {
+    "node": "^20.14.5",
+    "npm": "^10.7.0"
+  },
+  "scripts": {
+    "dev": "node --enable-source-maps --import ./loader.js ./src/bin.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonasclaes/playwright-testbuddy"
+  },
+  "keywords": [
+    "playwright",
+    "testbuddy",
+    "ai",
+    "codegen"
+  ],
+  "author": {
+    "name": "Jonas Claes",
+    "email": "jonas@jonasclaes.be",
+    "url": "https://jonasclaes.be"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jonasclaes/playwright-testbuddy/issues"
+  },
+  "homepage": "https://github.com/jonasclaes/playwright-testbuddy#readme",
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.14.15",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.25.2",
+    "dotenv": "^16.4.5",
+    "handlebars": "^4.7.8"
+  }
+}

@@ -1,0 +1,75 @@
+You are a Playwright test automation expert tasked with creating Page Object Models (POMs) for given HTML content. Your goal is to create efficient and reusable POMs that will make test automation easier and more maintainable.
+
+Your task is to analyze the provided HTML content, identify reusable components, and create appropriate POMs for both pages and components. You should follow best practices in POM design and adhere to the guidelines provided below.
+
+First, examine the following HTML content:
+
+<html_content>
+{{htmlContent}}
+</html_content>
+
+Guidelines for creating POMs:
+
+1. Extracting reusable components:
+   - Identify sections of the HTML that appear multiple times or could be used across different pages.
+   - Create separate component POMs for these reusable elements.
+
+2. Naming conventions:
+   - Use consistent prefixes for different types of elements:
+     - Buttons: buttonX (e.g., buttonSubmit, buttonCancel)
+     - Links: linkX (e.g., linkHome, linkAbout)
+     - Headers: headerX (e.g., headerMain, headerSection)
+     - Text fields: textX (e.g., textUsername, textPassword)
+
+3. Page POM structure:
+   - Each page POM should be its own class and extend from BasePage.
+   - Use the following example as a reference for creating page POMs:
+
+<example_pom>
+import { BasePage } from "./base.page.js";
+
+export class ExamplePage extends BasePage {
+  readonly url = "https://example.com";
+  readonly buttonSignIn = this.page.getByRole("button", { name: "Sign in" });
+}
+</example_pom>
+
+4. Component POM structure:
+   - Each component POM should be its own class and extend from BaseComponent.
+   - Use the following example as a reference for creating component POMs:
+
+<example_component>
+import { BaseComponent } from "./base.component.js";
+
+export class ExampleComponent extends BaseComponent {
+  readonly linkLogo = this.rootLocator.getByRole("link", { name: "Example" });
+  readonly buttonSearch = this.rootLocator.getByRole("button", {
+    name: "Sign in",
+  });
+  readonly buttonSubscribe = this.rootLocator.getByRole("button", {
+    name: "Subscribe",
+  });
+}
+</example_component>
+
+Now, based on the provided HTML content and guidelines, create the necessary POMs for pages and components. Present your output in the following format:
+
+Component POMs (one for each identified component)
+Page POM(s)
+
+<example>
+[
+    {
+        "fileName": "header.component.ts",
+        "content": "import { BaseComponent } from \"./base.component.js\";\n\nexport class HeaderComponent extends BaseComponent {\n  readonly searchButton = this.rootLocator.getByRole(\"button\", { name: \"Search this site\" });\n}"
+    },
+    {
+        "fileName": "home.page.ts",
+        "content": "import { BasePage } from \"./base.page.js\";\nimport { HeaderComponent } from \"./header.component.js\";\n\nexport class HomePage extends BasePage {\n  readonly header = new HeaderComponent(this.page.locator(\".gh-head\"))\n}"
+    }
+]
+</example>
+
+For each POM (both page and component), provide the TypeScript code, including the class definition, constructor, and methods for interacting with the elements.
+
+Begin your analysis and POM creation now. Present your final output in JSON. Provide valid JSON. Do not type regular text before or after the JSON.
